@@ -8,7 +8,6 @@ import {
   chart,
   clipboard,
   coins,
-  // handsack,
   handshake,
   home,
   leftRight,

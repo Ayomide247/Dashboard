@@ -9,7 +9,6 @@ import bank from "./bank.png";
 import chart from "./chart.png";
 import clipboard from "./clipboard.png";
 import coins from "./coins.png";
-import handsack from "./handsack.png";
 import handshake from "./handshake.png";
 import leftRight from "./leftRight.png";
 import loanSack from "./loanSack.png";
@@ -40,7 +39,6 @@ export {
   chart,
   clipboard,
   coins,
-  handsack,
   handshake,
   leftRight,
   loanSack,
