@@ -8,7 +8,7 @@ import {
   chart,
   clipboard,
   coins,
-  handsack,
+  // handsack,
   handshake,
   home,
   leftRight,
@@ -72,7 +72,7 @@ const Sidebar: React.FC = () => {
             <p>Savings</p>
           </div>
           <div className="flex items-center gap-3  cursor-pointer hover:scale-110 transition ease-in duration-500 pl-5">
-            <img src={handsack} alt="" />
+            <img src={handshake} alt="" />
             <p>Loan Resquest</p>
           </div>
           <div className="flex items-center gap-3  cursor-pointer hover:scale-110 transition ease-in duration-500 pl-5">
@@ -91,7 +91,7 @@ const Sidebar: React.FC = () => {
             <p>Organization</p>
           </div>
           <div className="flex items-center gap-3  cursor-pointer hover:scale-110 transition ease-in duration-500 pl-5">
-            <img src={handsack} alt="" />
+            <img src={handshake} alt="" />
             <p>Loan Products</p>
           </div>
           <div className="flex items-center gap-3  cursor-pointer hover:scale-110 transition ease-in duration-500 pl-5">
