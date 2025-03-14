@@ -27,7 +27,7 @@ const Dashboard = () => {
         <SideBar />
         <div className="flex flex-col flex-1">
           <NavBar />
-          <main className="flex flex-col items-center md:items-start mt-24 md:ml-5 lg:ml-30">
+          <main className="flex flex-col items-center md:items-start mt-24 md:ml-5 lg:ml-30 h-screen">
             <h6 className="text-[20px] font-bold hidden md:block">Users</h6>
             <div>
               <Card />

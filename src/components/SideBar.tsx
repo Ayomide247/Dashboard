@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
         <X size={24} />
       </button>
 
-      <div className="flex flex-col gap-5 mt-16 text-sm ">
+      <div className="flex flex-col gap-5 mt-16 text-sm  ">
         <div className="flex items-center gap-3 cursor-pointer pl-5">
           <img src={briefcase} alt="" />
           <p>Switch Organization</p>

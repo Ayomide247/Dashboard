@@ -1,10 +1,17 @@
 import { useState } from "react";
 import type { User } from "./Types";
 import { users } from "../utils/data";
-import { ChevronDown, MoreVertical } from "lucide-react";
+import {
+  ChevronDown,
+  MoreVertical,
+  ChevronRight,
+  ChevronLeft,
+} from "lucide-react";
 
 export default function UserTable() {
   const [showDropdown, setShowDropdown] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
 
   const toggleDropdown = (index: number) => {
     setShowDropdown(showDropdown === index ? null : index);
@@ -24,7 +31,7 @@ export default function UserTable() {
   };
 
   return (
-    <div className="w-[300px] md:w-full p-2 bg-white rounded-lg shadow-sm">
+    <div className="w-[300px] md:w-full p-2 bg-white rounded-lg shadow-sm overflow-y-scroll h-[550px]">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse hidden md:table">
           <thead>
@@ -93,6 +100,71 @@ export default function UserTable() {
         </table>
       </div>
 
+      <div className="hidden md:flex flex-col sm:flex-row justify-between items-center mt-6 gap-4">
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+          <span>Showing</span>
+          <div className="relative">
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              className="appearance-none bg-white border border-gray-300 rounded-md py-1 pl-3 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+              <ChevronDown className="h-4 w-4" />
+            </div>
+          </div>
+          <span>out of 100</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          {/* Previous Page Button */}
+          <button
+            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+            className="h-9 w-9 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+
+          {/* Page Numbers */}
+          {[1, 2, 3].map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`h-9 w-9 flex items-center justify-center rounded-md border ${
+                currentPage === page
+                  ? "bg-gray-100 text-gray-700 border-gray-300"
+                  : "border-gray-300 hover:bg-gray-50"
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+
+          <span className="px-2">...</span>
+
+          {[15, 16].map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className="h-9 w-9 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50"
+            >
+              {page}
+            </button>
+          ))}
+
+          <button
+            onClick={() => setCurrentPage(Math.min(16, currentPage + 1))}
+            className="h-9 w-9 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
       <div className="md:hidden space-y-5">
         {users.map((user, index) => (
           <div

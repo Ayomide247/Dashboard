@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   let Data;
   if (storedData) {
     Data = JSON.parse(storedData);
-    console.log(Data.name);
+    // console.log(Data.name);
   }
 
   return (
@@ -18,9 +18,8 @@ const Navbar: React.FC = () => {
       </button>
       <div className="flex items-center md:w-full">
         <img src={lendLogo} alt="" width={100} />
-        {/* Hide contents on mobile view */}
+
         <div className="hidden md:flex justify-between items-center ml-40 w-full">
-          {/* Search Bar */}
           <div className="flex items-center ">
             <input
               type="text"
