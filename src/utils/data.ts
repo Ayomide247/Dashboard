@@ -1,4 +1,4 @@
-import { userPink, userPurple, orangeCoin, redCoin } from "../assets/img/index";
+import { userPink, purpleUser, orangeCoin, redCoin } from "../assets/img/index";
 
 export const cardDetails = [
   {
@@ -9,7 +9,7 @@ export const cardDetails = [
   {
     title: "Active Users",
     value: "2,453",
-    icon: userPurple,
+    icon: purpleUser,
   },
   {
     title: "Users with Loans",
@@ -98,4 +98,13 @@ export const users: User[] = [
     dateJoined: "Apr 30, 2020 10:00 AM",
     status: "Inactive",
   },
+];
+
+export const tableHeader = [
+  "ORGANIZATION",
+  "USERNAME",
+  "EMAIL",
+  "PHONE NUMBER",
+  "DATE JOINED",
+  "STATUS",
 ];

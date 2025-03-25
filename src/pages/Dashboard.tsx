@@ -5,6 +5,7 @@ import SideBar from "../components/SideBar";
 import Card from "../components/Card";
 import UserTable from "../components/Table";
 import { X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Dashboard = () => {
   const { setPage } = useAuthStore();
@@ -22,13 +23,20 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="text-sm text-primary">
+    <motion.div
+      className="text-sm text-primary"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 3 }}
+    >
       <div className="flex h-fit">
         <SideBar />
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 relative">
           <NavBar />
-          <main className="flex flex-col items-center md:items-start mt-24 md:ml-5 lg:ml-30 h-screen">
-            <h6 className="text-[20px] font-bold hidden md:block">Users</h6>
+          <main className="flex flex-col items-center  lg:items-center mt-20 sm:ml-5 lg:ml-10">
+            <h6 className="absolute left-35 text-[20px] font-bold hidden lg:block">
+              Users
+            </h6>
             <div>
               <Card />
             </div>
@@ -46,7 +54,7 @@ const Dashboard = () => {
               onClick={() => setShowModal(false)}
               className="absolute top-3 right-3 text-gray-600 hover:text-gray-900"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 cursor-pointer" />
             </button>
             <h2 className="text-lg font-bold mb-4">Login Required</h2>
             <p className="text-gray-600 mb-4">
@@ -54,14 +62,14 @@ const Dashboard = () => {
             </p>
             <button
               onClick={() => setPage("login")}
-              className="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90"
+              className="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90 cursor-pointer"
             >
               Go to Login
             </button>
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

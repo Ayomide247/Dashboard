@@ -6,20 +6,20 @@ import * as Yup from "yup";
 import toastr from "toastr";
 
 interface FormValues {
-  name: string;
+  UserName: string;
   email: string;
   password: string | number;
 }
 
 const SignupSchema = Yup.object().shape({
-  name: Yup.string().min(3, "Too Short!").required("Name is required"),
+  UserName: Yup.string().min(3, "Too Short!").required("User name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string().min(5, "Too Short!").required("Password is required"),
 });
 
-const RegPage: React.FC = () => {
+const SignUp: React.FC = () => {
   const { setPage } = useAuthStore();
-  const initialValues: FormValues = { name: "", email: "", password: "" };
+  const initialValues: FormValues = { UserName: "", email: "", password: "" };
 
   const handleSubmit = (
     values: FormValues,
@@ -28,7 +28,7 @@ const RegPage: React.FC = () => {
     try {
       localStorage.setItem("userData", JSON.stringify(values));
       setPage("login");
-      console.log("Form Data Saved:", values);
+      // console.log("Form Data Saved:", values);
       toastr.success("Registration successful!");
     } catch (error) {
       toastr.error("Error saving to localStorage");
@@ -61,12 +61,12 @@ const RegPage: React.FC = () => {
               <div className="w-full h-14">
                 <Field
                   type="text"
-                  name="name"
+                  name="UserName"
                   className="w-full border border-gray-300 p-2 rounded outline-0"
-                  placeholder="Name"
+                  placeholder="UserName"
                 />
                 <ErrorMessage
-                  name="name"
+                  name="UserName"
                   component="div"
                   className="text-red-500 text-sm font-light"
                 />
@@ -125,4 +125,4 @@ const RegPage: React.FC = () => {
   );
 };
 
-export default RegPage;
+export default SignUp;

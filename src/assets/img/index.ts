@@ -22,7 +22,7 @@ import userCheck from "./userCheck.png";
 import userFriends from "./userFriends.png";
 import userSetting from "./userSetting.png";
 import userPink from "./userPink.png";
-import userPurple from "./userPurple.png";
+import purpleUser from "./userPurple.png";
 import orangeCoin from "./orangeCoin.png";
 import redCoin from "./redCoin.png";
 import userTimes from "./userTimes.png";
@@ -53,7 +53,7 @@ export {
   userSetting,
   userTimes,
   userPink,
-  userPurple,
+  purpleUser,
   orangeCoin,
   redCoin,
 };

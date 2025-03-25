@@ -1,4 +1,4 @@
-import { Dashboard, LoginPage, RegPage } from "../../pages/index";
+import { Dashboard, LoginPage, SignUp } from "../../pages/index";
 import { useAuthStore } from "./authStore";
 
 const AuthPage = () => {
@@ -9,7 +9,7 @@ const AuthPage = () => {
       {currentPage === "dashboard" ? (
         <Dashboard />
       ) : currentPage === "register" ? (
-        <RegPage />
+        <SignUp />
       ) : (
         <LoginPage />
       )}

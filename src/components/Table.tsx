@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { User } from "./Types";
-import { users } from "../utils/data";
+import { users, tableHeader } from "../utils/data";
 import {
   ChevronDown,
   MoreVertical,
@@ -31,19 +31,12 @@ export default function UserTable() {
   };
 
   return (
-    <div className="w-[300px] md:w-full p-2 bg-white rounded-lg shadow-sm overflow-y-scroll h-[550px]">
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse hidden md:table">
+    <div className="w-[300px] md:w-full p-2 bg-white rounded-lg shadow-sm ">
+      <div className="overflow-x-auto md:h-[350px]">
+        <table className="w-full border-collapse table">
           <thead>
             <tr className="border-b border-gray-200">
-              {[
-                "ORGANIZATION",
-                "USERNAME",
-                "EMAIL",
-                "PHONE NUMBER",
-                "DATE JOINED",
-                "STATUS",
-              ].map((header) => (
+              {tableHeader.map((header) => (
                 <th key={header} className="py-1 px-4 text-left">
                   <div className="flex items-center gap-1 text-xs font-medium text-gray-500">
                     {header}
@@ -51,7 +44,6 @@ export default function UserTable() {
                   </div>
                 </th>
               ))}
-              <th className="py-4 px-4"></th>
             </tr>
           </thead>
           <tbody>
@@ -122,7 +114,6 @@ export default function UserTable() {
         </div>
 
         <div className="flex items-center gap-1">
-          {/* Previous Page Button */}
           <button
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
             className="h-9 w-9 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50"
@@ -130,7 +121,6 @@ export default function UserTable() {
             <ChevronLeft className="h-4 w-4" />
           </button>
 
-          {/* Page Numbers */}
           {[1, 2, 3].map((page) => (
             <button
               key={page}
@@ -164,26 +154,6 @@ export default function UserTable() {
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
-      </div>
-      <div className="md:hidden space-y-5">
-        {users.map((user, index) => (
-          <div
-            key={index}
-            className="p-4 bg-gray-50 rounded-lg shadow-sm space-y-3"
-          >
-            <p className="text-sm font-medium">{user.username}</p>
-            <p className="text-xs text-gray-500">{user.email}</p>
-            <p className="text-xs text-gray-500">{user.phone}</p>
-            <p className="text-xs text-gray-500">{user.dateJoined}</p>
-            <span
-              className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                user.status
-              )}`}
-            >
-              {user.status}
-            </span>
-          </div>
-        ))}
       </div>
     </div>
   );

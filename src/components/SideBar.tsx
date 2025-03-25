@@ -12,6 +12,7 @@ import {
   home,
   leftRight,
   loanSack,
+  lendLogo,
   multipleUsers,
   piggy,
   settings,
@@ -28,17 +29,17 @@ const Sidebar: React.FC = () => {
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 top-0 md:top-10  bg-pure text-primary/70 w-64 transform transition-transform md:translate-x-0  md:relative z-50 md:-z-50  shadow-lg 
+      className={`fixed inset-y-0 left-0 top-0 md:pt-12  bg-pure text-primary/70 w-64 transform transition-transform md:translate-x-0  md:relative z-50 md:-z-50  shadow-lg overflow-scroll h-screen
       ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
-      <button
-        className="absolute top-1 right-4 md:hidden"
-        onClick={toggleSidebar}
-      >
-        <X size={24} />
-      </button>
+      <div className="flex items-center justify-between mt-5 px-5 md:hidden">
+        <img src={lendLogo} alt="Logo" className="w-25 " />
+        <button className=" " onClick={toggleSidebar}>
+          <X size={24} />
+        </button>
+      </div>
 
-      <div className="flex flex-col gap-5 mt-16 text-sm  ">
+      <div className="flex flex-col gap-5 mt-10 text-sm">
         <div className="flex items-center gap-3 cursor-pointer pl-5">
           <img src={briefcase} alt="" />
           <p>Switch Organization</p>
